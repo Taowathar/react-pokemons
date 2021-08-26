@@ -33,9 +33,9 @@ const App = () => {
             path="/pokemons"
             exact
             render={(props) => (
-              <>
+              <div className="card-container">
                 <PokemonList pokemons={pokemonList} />
-              </>
+              </div>
             )}
           />
           <Route path="/types" exact render={(props) => <></>} />
