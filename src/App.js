@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
+import TypeList from "./components/TypeList";
 
 const App = () => {
   const [pokemonList, setPokemonList] = useState([]);
-  
+  const [typeList, setTypeList] = useState([]);
+
   var [currentPage, setCurrentPage] = useState(0);
   const pageCount = 56;
   const pokemonsPerPage = 20;
@@ -27,6 +29,14 @@ const App = () => {
 
     return data.results;
   };
+
+  const fetchTypes = async () => {
+    const results = await fetch("https://pokeapi.co/api/v2/type")
+    const data = await results.json()
+    
+    return data.results;
+  }
+
 
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected);
@@ -69,8 +79,15 @@ const App = () => {
               </div>
             )}
           />
-          <Route path="/types" exact render={(props) => <></>} />
-          {/* <Route path="/about" component={About} /> */}
+          <Route
+            path="/types"
+            exact
+            render={(props) => (
+              <div className="type-container">
+                <TypeList typeList={typeList} />
+              </div>
+            )}
+          />
         </div>
       </div>
     </Router>
