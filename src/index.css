@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Frijole&family=Patua+One&family=Sigmar+One&display=swap');
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -40,6 +44,7 @@ code {
   text-decoration: none;
   text-align: center;
   color: khaki;
+  font-family: 'Patua One', cursive;
 }
 
 .card-container {
@@ -66,8 +71,35 @@ code {
   text-align: center;
 }
 
+.type-container {
+  text-transform: capitalize;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 85%;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin: auto;
+  background-color: seagreen;
+}
+
+.type-card {
+  padding: 10px;
+  width: 160px;
+  height: 60px;
+  background-color : darkgoldenrod;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin: 5px;
+  text-align: center;
+  font-family: 'Sigmar One', cursive;
+}
+
 .pokemon-card h3 {
   margin-top: 0;
+  color: gold;
+  font-family: 'Frijole', cursive;
+  font-weight: 100;
 }
 
 .page{
