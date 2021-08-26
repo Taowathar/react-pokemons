@@ -18,7 +18,12 @@ const App = () => {
       const pokemonsFromServer = await fetchPokemons({ currentPage });
       setPokemonList(pokemonsFromServer);
     };
+    const getTypes = async () => {
+      const typesFromServer = await fetchTypes();
+      setTypeList(typesFromServer);
+    };
     getPokemons();
+    getTypes();
   }, []);
 
   const fetchPokemons = async ({ currentPage }) => {
@@ -31,12 +36,11 @@ const App = () => {
   };
 
   const fetchTypes = async () => {
-    const results = await fetch("https://pokeapi.co/api/v2/type")
-    const data = await results.json()
-    
-    return data.results;
-  }
+    const results = await fetch("https://pokeapi.co/api/v2/type");
+    const data = await results.json();
 
+    return data.results;
+  };
 
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected);
