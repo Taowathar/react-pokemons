@@ -1,10 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
-    return (
-        <div className='navbar'>
+  return (
+    <div className="navbar">
+      <Link className="navbar-link" to="/pokemons">
+        Pokemons
+      </Link>
+      <Link className="navbar-link" to="/types">
+        Types
+      </Link>
+    </div>
+  );
+};
 
-            
-        </div>
-    )
-}
-
-export default Navbar
+export default Navbar;
