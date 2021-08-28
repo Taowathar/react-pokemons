@@ -5,8 +5,7 @@ const PokemonDetail = ({ pokemonId }) => {
     name,
     height,
     weight,
-    picture,
-    species = null;
+    picture = null;
   let abilities = [];
   let types = [];
 
@@ -21,13 +20,38 @@ const PokemonDetail = ({ pokemonId }) => {
     height = pokemon.height;
     weight = pokemon.weight;
     picture = pokemon.sprites.other["official-artwork"]["front_default"];
-    species = pokemon.species.name;
     abilities = pokemon.abilities;
     types = pokemon.types;
   }
   return (
-    <div className="detail-container">
+    <div className="detail-page">
+      <div className="detail-container">
+        <div className="picture-container">
+          <img src={picture} alt="official-artwork" />
+        </div>
+        <div className="details">
+          <h1>{name}</h1>
+          <h4>Height: {height}</h4>
+          <h4>Weight: {weight}</h4>
 
+          <h2>Types:</h2>
+      <div className="types">
+        {types.map((type) => (
+          <div className="type" key={types.indexOf(type)}>
+            <p>{type.type.name}</p>
+          </div>
+        ))}
+      </div>
+        </div>
+      </div>
+      <h1>Abilities</h1>
+      <div className="abilities">
+        {abilities.map((ability) => (
+          <div className="ability-card" key={abilities.indexOf(ability)}>
+            <p>{ability.ability.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
