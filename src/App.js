@@ -1,5 +1,5 @@
 import ReactPaginate from "react-paginate";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
@@ -7,44 +7,26 @@ import TypeList from "./components/TypeList";
 import { useHttp } from "./hooks/http";
 
 const App = () => {
-  const [pokemonList, setPokemonList] = useState([]);
-
-  var [currentPage, setCurrentPage] = useState(0);
+  let [currentPage, setCurrentPage] = useState(0);
   const pageCount = 56;
   const pokemonsPerPage = 20;
+  const pokemonsFrom = currentPage * pokemonsPerPage;
+
+  const pokemonListUrl = `https://pokeapi.co/api/v2/pokemon?offset=${pokemonsFrom}&limit=${pokemonsPerPage}`;
+  let pokemonList = null;
+  const [, fetchedPokemons] = useHttp(pokemonListUrl, [currentPage]);
+  if (fetchedPokemons) {
+    pokemonList = fetchedPokemons.results;
+  }
 
   let typeList = null;
   const [, fetchedTypeList] = useHttp("https://pokeapi.co/api/v2/type", []);
-
   if (fetchedTypeList) {
     typeList = fetchedTypeList.results;
   }
 
-  useEffect(() => {
-    const getPokemons = async () => {
-      const pokemonsFromServer = await fetchPokemons({ currentPage });
-      setPokemonList(pokemonsFromServer);
-    };
-
-    getPokemons();
-  }, []);
-
-  const fetchPokemons = async ({ currentPage }) => {
-    const pokemonsFrom = currentPage * pokemonsPerPage;
-    const pokemonListUrl = `https://pokeapi.co/api/v2/pokemon?offset=${pokemonsFrom}&limit=${pokemonsPerPage}`;
-    const results = await fetch(pokemonListUrl);
-    const data = await results.json();
-
-    return data.results;
-  };
-
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected);
-    const getPokemons = async () => {
-      const pokemonsFromServer = await fetchPokemons({ currentPage });
-      setPokemonList(pokemonsFromServer);
-    };
-    getPokemons();
   };
 
   return (
