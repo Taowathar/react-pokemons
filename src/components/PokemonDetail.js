@@ -1,12 +1,16 @@
 import { useHttp } from "../hooks/http";
 
-const PokemonDetail = ( { pokemonId } ) => {
+const PokemonDetail = ({ pokemonId }) => {
+  let pokemon = null;
 
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  const [, fetchData] = useHttp(
+    `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`,
+    []
+  );
+  if (fetchData) {
+    pokemon = fetchData;
+  }
+  return <div></div>;
+};
 
-export default PokemonDetail
+export default PokemonDetail;
