@@ -144,3 +144,7 @@ code {
       list-style: none;
       justify-content: center;
   }
+
+  .detail-link {
+    text-decoration: none;
+  }
