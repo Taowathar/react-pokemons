@@ -110,28 +110,28 @@ code {
     margin-right: 10px;
     cursor: pointer;
   }
-  
+
   .disabled{
     cursor: not-allowed;
-    
+
   }
-  
+
   .active{
   border: 2px solid #000;
     font-weight: bold;
   }
-  
+
   .previous{
     padding: 10px;
     border-radius: 6px;
     margin-right: 10px;
     cursor: pointer;
   }
-  
+
   .break{
     padding: 10px;
   }
-  
+
   .next{
     padding: 10px;
     border-radius: 6px;
@@ -147,4 +147,92 @@ code {
 
   .detail-link {
     text-decoration: none;
+  }
+  
+  .detail-page {
+    width: 90%;
+    text-align: center;
+  }
+
+  .detail-container {
+    width: 80%;
+    /* max-height: 550px; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: chocolate;
+    border-radius:  15px;
+    border: 5px solid black;
+    display: flex;
+  }
+
+  .picture-container {
+    width: 50%;
+  }
+  
+  .details {
+    width: 50%;
+    text-align: center;
+  }
+
+  .details h1 {
+    width: 90%;
+    text-transform: capitalize;
+    color: gold;
+    font-family: 'Frijole', cursive;
+    font-weight: 100;
+    font-size: xxx-large;
+    margin-left : auto;
+    margin-right: auto;
+  }
+
+  .details h4 {
+    font-size: larger;
+  }
+
+  .abilities {
+    width: 80%;
+    max-height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: chocolate;
+    border-radius:  15px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ability-card {
+    padding: 10px;
+    width: 160px;
+    height: 60px;
+    background-color:chartreuse;
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: 5px;
+    text-align: center;
+    font-family: 'Sigmar One', cursive;
+  }
+
+  .types {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .type {
+    width: 100px;
+    background-color: darkcyan;
+    border: 5px solid black;
+    border-radius: 15px;
+    /* margin-top: 30px; */
+    text-align: center;
+    font-family: 'Sigmar One', cursive;
+  }
+
+  .type h3 {
+    margin: auto;
+  }
+
+  .details h2 {
+    font-family: 'Sigmar One', cursive;
+    font-size: 40px;
   }
