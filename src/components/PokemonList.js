@@ -1,10 +1,14 @@
 import Pokemon from "./Pokemon";
 
-const PokemonList = ({ pokemons }) => {
+const PokemonList = ({ pokemons, setPokemonId }) => {
   return (
     <>
       {pokemons.map((pokemon) => (
-        <Pokemon key={pokemon.url} pokemon={pokemon} />
+        <Pokemon
+          key={pokemon.url}
+          pokemon={pokemon}
+          setPokemonId={setPokemonId}
+        />
       ))}
     </>
   );
