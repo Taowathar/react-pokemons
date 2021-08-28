@@ -1,5 +1,5 @@
 import ReactPaginate from "react-paginate";
-import { useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
@@ -8,6 +8,7 @@ import { useHttp } from "./hooks/http";
 
 const App = () => {
   let [currentPage, setCurrentPage] = useState(0);
+  let [pokemonId, setPokemonId] = useState();
   const pageCount = 56;
   const pokemonsPerPage = 20;
   const pokemonsFrom = currentPage * pokemonsPerPage;
@@ -38,10 +39,13 @@ const App = () => {
           <Route
             path="/pokemons"
             exact
-            render={(props) => (
+            render={() => (
               <div className="x">
                 <div className="card-container">
-                  <PokemonList pokemons={pokemonList} />
+                  <PokemonList
+                    pokemons={pokemonList}
+                    setPokemonId={setPokemonId}
+                  />
                 </div>
                 <div className="pagination-field">
                   <ReactPaginate
@@ -64,7 +68,7 @@ const App = () => {
           <Route
             path="/types"
             exact
-            render={(props) => (
+            render={() => (
               <div className="type-container">
                 <TypeList typeList={typeList} />
               </div>
