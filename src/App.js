@@ -1,10 +1,12 @@
 import ReactPaginate from "react-paginate";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import { useHttp } from "./hooks/http";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
-import { useHttp } from "./hooks/http";
+import PokemonDetail from "./components/PokemonDetail";
 
 const App = () => {
   let [currentPage, setCurrentPage] = useState(0);
@@ -71,6 +73,15 @@ const App = () => {
             render={() => (
               <div className="type-container">
                 <TypeList typeList={typeList} />
+              </div>
+            )}
+          />
+          <Route
+            path={`/pokemon/${pokemonId}`}
+            exact
+            render={() => (
+              <div>
+                <PokemonDetail pokemonId={pokemonId} />
               </div>
             )}
           />
