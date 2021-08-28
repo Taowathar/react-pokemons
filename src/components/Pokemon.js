@@ -1,9 +1,8 @@
-
 import { useHttp } from "../hooks/http";
 
-const Pokemon = ({ pokemon}) => {
+const Pokemon = ({ pokemon }) => {
   let picture = null;
-  const [, fetchData] = useHttp(pokemon.url, [])
+  const [, fetchData] = useHttp(pokemon.url, []);
 
   if (fetchData) {
     picture = fetchData.sprites.front_default;
