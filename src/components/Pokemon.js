@@ -1,23 +1,12 @@
-import { useState, useEffect } from "react";
+import { useHttp } from "../hooks/http";
 
-const Pokemon = ({ pokemon}) => {
+const Pokemon = ({ pokemon }) => {
+  let picture = null;
+  const [, fetchData] = useHttp(pokemon.url, []);
 
-  const [picture, setPicture] = useState()
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      const pictureFromServer = await fetchPokemonPicture();
-      setPicture(pictureFromServer);
-    };
-    getPokemons();
-  }, []);
-
-  const fetchPokemonPicture = async () => {
-    const results = await fetch(pokemon.url);
-    const data = await results.json();
-
-    return data.sprites.front_default;
-  };
+  if (fetchData) {
+    picture = fetchData.sprites.front_default;
+  }
 
   return (
     <div className="pokemon-card">
