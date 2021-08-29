@@ -1,27 +1,29 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 export const useHttp = (url, dependencies) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchedData, setFetchedData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(url)
+    axios
+      .get(url)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch.");
-        }
-        return response.json();
-      })
-      .then((data) => {
+        setFetchedData(response.data);
         setIsLoading(false);
-        setFetchedData(data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        setError(error);
         setIsLoading(false);
       });
   }, dependencies);
+
+  if (error) {
+    console.log(`Error: ${error.message}`);
+    return `Error: ${error.message}`;
+  }
 
   return [isLoading, fetchedData];
 };
