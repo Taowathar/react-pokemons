@@ -41,7 +41,9 @@ const App = () => {
       <div className={`app ${greyMode ? "grey" : "colorful"}`}>
         <Navbar />
         <div className={`container ${greyMode ? "grey" : "colorful"}`}>
-          <Route path="/" exact render={() => <></>} />
+          <Route path="/" exact render={() => <div className="main-picture-container">
+            <img src="./SI13bW.png" alt="main_picture" />
+          </div>} />
           <Route
             path="/pokemons"
             exact
