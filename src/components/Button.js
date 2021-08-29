@@ -13,11 +13,13 @@ const Button = () => {
     }
   };
 
-  return <div>
+  return (
+    <div>
       <button className="btn" onClick={onClick}>
-          {greyMode ? "Switch to Colorful Mode" : "Switch to Greyscale Mode"}
+        {greyMode ? "Switch to Colorful Mode" : "Switch to Greyscale Mode"}
       </button>
-  </div>;
+    </div>
+  );
 };
 
 export default Button;
