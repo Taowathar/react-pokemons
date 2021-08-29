@@ -1,4 +1,4 @@
-import { useHttp } from "../hooks/http";
+import { useAxiosGet } from "../hooks/http";
 
 const PokemonDetail = ({ pokemonId }) => {
   let pokemon,
@@ -9,7 +9,7 @@ const PokemonDetail = ({ pokemonId }) => {
   let abilities = [];
   let types = [];
 
-  const [, fetchData] = useHttp(
+  const [, fetchData] = useAxiosGet(
     `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`,
     []
   );
@@ -35,13 +35,13 @@ const PokemonDetail = ({ pokemonId }) => {
           <h4>Weight: {weight}</h4>
 
           <h2>Types:</h2>
-      <div className="types">
-        {types.map((type) => (
-          <div className="type" key={types.indexOf(type)}>
-            <p>{type.type.name}</p>
+          <div className="types">
+            {types.map((type) => (
+              <div className="type" key={types.indexOf(type)}>
+                <p>{type.type.name}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
         </div>
       </div>
       <h1>Abilities</h1>

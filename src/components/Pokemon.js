@@ -1,11 +1,11 @@
-import { useHttp } from "../hooks/http";
+import { useAxiosGet } from "../hooks/http";
 import { Link } from "react-router-dom";
 
 const Pokemon = ({ pokemon, setPokemonId }) => {
   let picture = null;
   const pokemonId = pokemon.url.split("/")[6];
 
-  const [, fetchData] = useHttp(pokemon.url, []);
+  const [, fetchData] = useAxiosGet(pokemon.url, []);
   if (fetchData) {
     picture = fetchData.sprites.front_default;
   }

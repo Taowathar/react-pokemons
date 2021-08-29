@@ -2,7 +2,7 @@ import ReactPaginate from "react-paginate";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { useHttp } from "./hooks/http";
+import { useAxiosGet } from "./hooks/http";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
@@ -17,13 +17,13 @@ const App = () => {
 
   const pokemonListUrl = `https://pokeapi.co/api/v2/pokemon?offset=${pokemonsFrom}&limit=${pokemonsPerPage}`;
   let pokemonList = null;
-  const [, fetchedPokemons] = useHttp(pokemonListUrl, [currentPage]);
+  const [, fetchedPokemons] = useAxiosGet(pokemonListUrl, [currentPage]);
   if (fetchedPokemons) {
     pokemonList = fetchedPokemons.results;
   }
 
   let typeList = null;
-  const [, fetchedTypeList] = useHttp("https://pokeapi.co/api/v2/type", []);
+  const [, fetchedTypeList] = useAxiosGet("https://pokeapi.co/api/v2/type", []);
   if (fetchedTypeList) {
     typeList = fetchedTypeList.results;
   }
