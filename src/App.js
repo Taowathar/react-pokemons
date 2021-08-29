@@ -1,5 +1,5 @@
 import ReactPaginate from "react-paginate";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { useAxiosGet } from "./hooks/axiosGet";
@@ -7,8 +7,12 @@ import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
 import PokemonDetail from "./components/PokemonDetail";
+import { ThemeContext } from "./components/ThemeContext";
 
 const App = () => {
+  const theme = useContext(ThemeContext)
+  const greyMode = theme.state.greyMode
+
   let [currentPage, setCurrentPage] = useState(0);
   let [pokemonId, setPokemonId] = useState();
   const pageCount = 56;
@@ -34,16 +38,16 @@ const App = () => {
 
   return (
     <Router>
-      <div className="App">
+      <div className={`app ${greyMode ? "grey" : "colorful"}`}>
         <Navbar />
-        <div className="container">
+        <div className={`container ${greyMode ? "grey" : "colorful"}`}>
           <Route path="/" exact render={() => <></>} />
           <Route
             path="/pokemons"
             exact
             render={() => (
-              <div className="x">
-                <div className="card-container">
+              <div>
+                <div className={`card-container ${greyMode ? "grey" : "colorful"}`}>
                   <PokemonList
                     pokemons={pokemonList}
                     setPokemonId={setPokemonId}

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Frijole&family=Patua+One&family=Sigmar+One&display=swap');
 
 
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -9,7 +8,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: cadetblue;
+
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+app.grey {
+  filter: grayscale(1);
 }
 
 code {
@@ -18,13 +26,18 @@ code {
 }
 
 .container {
-  width: 90%;
-  margin-top: 120px;
-  margin-left: auto;
-  margin-right: auto;
+  min-height: 84vh;
+  padding-top: 120px;
+  width: 100%;
+  background-color: cadetblue;
+}
+
+.container.grey {
+  filter: grayscale(1);
 }
 
 .navbar {
+  z-index: 5;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -45,6 +58,10 @@ code {
   text-align: center;
   color: khaki;
   font-family: 'Patua One', cursive;
+}
+
+.navbar.grey {
+  filter: grayscale(1);
 }
 
 .card-container {
@@ -72,11 +89,11 @@ code {
 }
 
 .type-container {
+  width: 70%;
   text-transform: capitalize;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 85%;
   border: 5px solid black;
   border-radius: 15px;
   margin: auto;
@@ -156,7 +173,6 @@ code {
 
   .detail-container {
     width: 80%;
-    /* max-height: 550px; */
     margin-left: auto;
     margin-right: auto;
     background-color: chocolate;
@@ -171,16 +187,18 @@ code {
   
   .details {
     width: 50%;
+    max-width: 100%;
     text-align: center;
   }
 
   .details h1 {
     width: 90%;
+    max-width: 100%;
     text-transform: capitalize;
     color: gold;
     font-family: 'Frijole', cursive;
     font-weight: 100;
-    font-size: xxx-large;
+    font-size: xx-large;
     margin-left : auto;
     margin-right: auto;
   }
@@ -223,7 +241,6 @@ code {
     background-color: darkcyan;
     border: 5px solid black;
     border-radius: 15px;
-    /* margin-top: 30px; */
     text-align: center;
     font-family: 'Sigmar One', cursive;
   }
@@ -235,4 +252,18 @@ code {
   .details h2 {
     font-family: 'Sigmar One', cursive;
     font-size: 40px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .btn {
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: auto;
+    background-color: seagreen;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Sigmar One', cursive;
   }
