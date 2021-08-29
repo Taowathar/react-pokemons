@@ -1,4 +1,4 @@
-import { useAxiosGet } from "../hooks/http";
+import { useAxiosGet } from "../hooks/axiosGet";
 import { Link } from "react-router-dom";
 
 const Pokemon = ({ pokemon, setPokemonId }) => {

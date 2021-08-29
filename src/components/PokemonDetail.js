@@ -1,4 +1,4 @@
-import { useAxiosGet } from "../hooks/http";
+import { useAxiosGet } from "../hooks/axiosGet";
 
 const PokemonDetail = ({ pokemonId }) => {
   let pokemon,

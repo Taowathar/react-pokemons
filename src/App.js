@@ -2,7 +2,7 @@ import ReactPaginate from "react-paginate";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { useAxiosGet } from "./hooks/http";
+import { useAxiosGet } from "./hooks/axiosGet";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
