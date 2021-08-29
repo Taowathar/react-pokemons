@@ -69,7 +69,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 85%;
+  width: 75%;
   border: 5px solid black;
   border-radius: 15px;
   margin: auto;
@@ -169,6 +169,7 @@ code {
   .detail-page {
     width: 90%;
     text-align: center;
+    padding-bottom: 20px;
   }
 
   .detail-container {
