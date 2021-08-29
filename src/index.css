@@ -268,3 +268,10 @@ code {
     text-align: center;
     font-family: 'Sigmar One', cursive;
   }
+
+  .main-picture-container img {
+    position: fixed;
+    top: 80px;
+    height: 90%;
+    width: 100%;
+  }
