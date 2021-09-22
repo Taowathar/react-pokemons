@@ -34,6 +34,7 @@ const App = () => {
 
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected);
+    console.log(currentPage)
   };
 
   return (
@@ -48,7 +49,7 @@ const App = () => {
             path="/pokemons"
             exact
             render={() => (
-              <div>
+              <div style={{minHeight : "90vh"}}>
                 <div className={`card-container ${greyMode ? "grey" : "colorful"}`}>
                   <PokemonList
                     pokemons={pokemonList}
@@ -77,7 +78,7 @@ const App = () => {
             path="/types"
             exact
             render={() => (
-              <div className="type-container">
+              <div className="type-container" style={{minHeight : "90vh"}}>
                 <TypeList typeList={typeList} />
               </div>
             )}
@@ -86,7 +87,7 @@ const App = () => {
             path={`/pokemon/${pokemonId}`}
             exact
             render={() => (
-              <div>
+              <div style={{minHeight : "90vh"}}>
                 <PokemonDetail pokemonId={pokemonId} />
               </div>
             )}

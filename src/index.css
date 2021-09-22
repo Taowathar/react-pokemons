@@ -68,12 +68,14 @@ code {
   text-transform: capitalize;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 75%;
+  max-width: 850px;
   border: 5px solid black;
   border-radius: 15px;
   margin: auto;
   background-color: #a7a72f;
+  align-items: center;
 }
 
 
@@ -86,18 +88,22 @@ code {
   border-radius: 15px;
   margin: 5px;
   text-align: center;
+
 }
 
 .type-container {
   width: 70%;
+  max-width: 850px;
+  max-height: 800px;
   text-transform: capitalize;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   border: 5px solid black;
   border-radius: 15px;
   margin: auto;
   background-color: seagreen;
+  align-items: center;
 }
 
 .type-card {
@@ -170,6 +176,8 @@ code {
     width: 90%;
     text-align: center;
     padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;    
   }
 
   .detail-container {
@@ -272,6 +280,6 @@ code {
   .main-picture-container img {
     position: fixed;
     top: 80px;
-    height: 90%;
+    height: 100%;
     width: 100%;
   }
