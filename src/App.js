@@ -6,6 +6,7 @@ import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
 import PokemonDetail from "./components/PokemonDetail";
 import { ThemeContext } from "./context/ThemeContext";
+import { GlobalStyles } from "./context/Theme";
 
 const App = () => {
   const theme = useContext(ThemeContext);
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <Router>
+      <GlobalStyles />
       <div className={`app ${greyMode ? "grey" : "colorful"}`}>
         <Navbar />
         <div className={`container ${greyMode ? "grey" : "colorful"}`}>
@@ -23,7 +25,11 @@ const App = () => {
             path="/"
             exact
             render={() => (
-              <div className="main-picture-container">
+              <div
+                className={`main-picture-container ${
+                  greyMode ? "grey" : "colorful"
+                }`}
+              >
                 <img src="./SI13bW.png" alt="main_picture" />
               </div>
             )}
@@ -32,7 +38,7 @@ const App = () => {
             path="/pokemons"
             exact
             render={() => (
-              <div style={{ minHeight: "90vh" }}>
+              <div style={{ minHeight: "115vh" }}>
                 <PokemonList
                   setPokemonId={setPokemonId}
                   currentPage={currentPage}
@@ -46,7 +52,7 @@ const App = () => {
             path="/types"
             exact
             render={() => (
-              <div className="type-container" style={{ minHeight: "90vh" }}>
+              <div className="type-container" style={{ minHeight: "88vh" }}>
                 <TypeList />
               </div>
             )}
@@ -55,7 +61,7 @@ const App = () => {
             path={`/pokemon/${pokemonId}`}
             exact
             render={() => (
-              <div style={{ minHeight: "90vh" }}>
+              <div style={{ minHeight: "88vh" }}>
                 <PokemonDetail pokemonId={pokemonId} />
               </div>
             )}
