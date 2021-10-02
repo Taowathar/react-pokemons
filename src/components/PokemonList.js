@@ -1,6 +1,7 @@
 import Pokemon from "./Pokemon";
 import { useAxiosGet } from "../hooks/axiosGet";
 import Pagination from "./Pagination";
+import { PokemonCardContainer } from "../style/PokemonCardElements";
 
 const PokemonList = (props) => {
   const pokemonsPerPage = 20;
@@ -15,7 +16,9 @@ const PokemonList = (props) => {
 
   return (
     <>
-      <div className={`card-container ${props.greyMode ? "grey" : "colorful"}`}>
+      <PokemonCardContainer
+        className={`card-container ${props.greyMode ? "grey" : "colorful"}`}
+      >
         {pokemonList
           ? pokemonList.map((pokemon) => (
               <Pokemon
@@ -25,7 +28,7 @@ const PokemonList = (props) => {
               />
             ))
           : null}
-      </div>
+      </PokemonCardContainer>
       <Pagination setCurrentPage={props.setCurrentPage} />
     </>
   );

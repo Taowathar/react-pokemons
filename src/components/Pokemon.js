@@ -1,5 +1,6 @@
 import { useAxiosGet } from "../hooks/axiosGet";
 import { Link } from "react-router-dom";
+import { H3, PokemonCard } from "../style/PokemonCardElements";
 
 const Pokemon = ({ pokemon, setPokemonId }) => {
   let picture = null;
@@ -15,18 +16,14 @@ const Pokemon = ({ pokemon, setPokemonId }) => {
   };
 
   return (
-    <>
-      <Link
-        className="detail-link"
-        onClick={onClick}
-        to={`/pokemon/${pokemonId}`}
-      >
-        <div className="pokemon-card">
-          <h3 className="pokemon-name">{pokemon.name}</h3>
+    <PokemonCard>
+      <Link onClick={onClick} to={`/pokemon/${pokemonId}`}>
+        <div>
+          <H3>{pokemon.name}</H3>
           <img src={picture} alt="logo" />
         </div>
       </Link>
-    </>
+    </PokemonCard>
   );
 };
 
