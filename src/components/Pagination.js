@@ -1,4 +1,5 @@
 import ReactPaginate from "react-paginate";
+import { PaginationDiv } from "../style/PaginationElements";
 
 const Pagination = (props) => {
   const pageCount = 56;
@@ -8,7 +9,7 @@ const Pagination = (props) => {
   };
 
   return (
-    <div className="pagination-field">
+    <PaginationDiv>
       <ReactPaginate
         pageCount={pageCount}
         pageRange={2}
@@ -22,7 +23,7 @@ const Pagination = (props) => {
         disabledClassNae={"disabled"}
         activeClassName={"active"}
       />
-    </div>
+    </PaginationDiv>
   );
 };
 
