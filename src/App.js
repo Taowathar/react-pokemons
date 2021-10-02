@@ -2,7 +2,6 @@ import ReactPaginate from "react-paginate";
 import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { useAxiosGet } from "./hooks/axiosGet";
 import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
@@ -16,15 +15,6 @@ const App = () => {
   let [currentPage, setCurrentPage] = useState(0);
   let [pokemonId, setPokemonId] = useState();
   const pageCount = 56;
-  const pokemonsPerPage = 20;
-  const pokemonsFrom = currentPage * pokemonsPerPage;
-
-  const pokemonListUrl = `https://pokeapi.co/api/v2/pokemon?offset=${pokemonsFrom}&limit=${pokemonsPerPage}`;
-  let pokemonList = null;
-  const [, fetchedPokemons] = useAxiosGet(pokemonListUrl, [currentPage]);
-  if (fetchedPokemons) {
-    pokemonList = fetchedPokemons.results;
-  }
 
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected);
@@ -54,8 +44,8 @@ const App = () => {
                   className={`card-container ${greyMode ? "grey" : "colorful"}`}
                 >
                   <PokemonList
-                    pokemons={pokemonList}
                     setPokemonId={setPokemonId}
+                    currentPage={currentPage}
                   />
                 </div>
                 <div className="pagination-field">
