@@ -15,7 +15,7 @@ const Button = () => {
 
   return (
     <div>
-      <button className="btn" onClick={onClick}>
+      <button onClick={onClick}>
         {greyMode ? "Switch to Colorful Mode" : "Switch to Greyscale Mode"}
       </button>
     </div>

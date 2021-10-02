@@ -2,20 +2,21 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import Button from "./Button";
+import { NavbarContainer, NavbarLink } from "../style/NavbarElements";
 
 const Navbar = () => {
   const theme = useContext(ThemeContext);
   const greyMode = theme.state.greyMode;
   return (
-    <div className={`navbar ${greyMode ? "grey" : "colorful"}`}>
-      <Link className="navbar-link" to="/pokemons">
-        Pokemons
-      </Link>
+    <NavbarContainer className={`navbar ${greyMode ? "grey" : "colorful"}`}>
+      <NavbarLink>
+        <Link to="/pokemons">Pokemons</Link>
+      </NavbarLink>
       <Button />
-      <Link className="navbar-link" to="/types">
-        Types
-      </Link>
-    </div>
+      <NavbarLink>
+        <Link to="/types">Types</Link>
+      </NavbarLink>
+    </NavbarContainer>
   );
 };
 
