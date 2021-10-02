@@ -1,4 +1,3 @@
-import ReactPaginate from "react-paginate";
 import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -14,12 +13,6 @@ const App = () => {
 
   let [currentPage, setCurrentPage] = useState(0);
   let [pokemonId, setPokemonId] = useState();
-  const pageCount = 56;
-
-  const handlePageChange = (selectedObject) => {
-    setCurrentPage(selectedObject.selected);
-    console.log(currentPage);
-  };
 
   return (
     <Router>
@@ -40,29 +33,12 @@ const App = () => {
             exact
             render={() => (
               <div style={{ minHeight: "90vh" }}>
-                <div
-                  className={`card-container ${greyMode ? "grey" : "colorful"}`}
-                >
-                  <PokemonList
-                    setPokemonId={setPokemonId}
-                    currentPage={currentPage}
-                  />
-                </div>
-                <div className="pagination-field">
-                  <ReactPaginate
-                    pageCount={pageCount}
-                    pageRange={2}
-                    marginPagesDisplayed={2}
-                    onPageChange={handlePageChange}
-                    containerClassName={"pagination-field"}
-                    previousLinkClassName={"page"}
-                    breakClassName={"page"}
-                    nextLinkClassName={"page"}
-                    pageClassName={"page"}
-                    disabledClassNae={"disabled"}
-                    activeClassName={"active"}
-                  />
-                </div>
+                <PokemonList
+                  setPokemonId={setPokemonId}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  theme={greyMode}
+                />
               </div>
             )}
           />
