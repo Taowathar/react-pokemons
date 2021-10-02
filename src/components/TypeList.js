@@ -1,13 +1,21 @@
-import Type from './Type'
+import Type from "./Type";
+import { useAxiosGet } from "../hooks/axiosGet";
 
-const TypeList = ({typeList}) => {
-    return (
-        <>
-        {typeList.map((type) => (
-          <Type key={type.url} type={type} />
-        ))}
-      </>
-    )
-}
+const TypeList = () => {
+  let typeList = null;
 
-export default TypeList
+  const [, fetchedTypeList] = useAxiosGet("https://pokeapi.co/api/v2/type", []);
+  if (fetchedTypeList) {
+    typeList = fetchedTypeList.results;
+  }
+
+  return (
+    <>
+      {typeList
+        ? typeList.map((type) => <Type key={type.url} type={type} />)
+        : null}
+    </>
+  );
+};
+
+export default TypeList;

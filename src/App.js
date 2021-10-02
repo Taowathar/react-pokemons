@@ -10,8 +10,8 @@ import PokemonDetail from "./components/PokemonDetail";
 import { ThemeContext } from "./components/ThemeContext";
 
 const App = () => {
-  const theme = useContext(ThemeContext)
-  const greyMode = theme.state.greyMode
+  const theme = useContext(ThemeContext);
+  const greyMode = theme.state.greyMode;
 
   let [currentPage, setCurrentPage] = useState(0);
   let [pokemonId, setPokemonId] = useState();
@@ -26,15 +26,9 @@ const App = () => {
     pokemonList = fetchedPokemons.results;
   }
 
-  let typeList = null;
-  const [, fetchedTypeList] = useAxiosGet("https://pokeapi.co/api/v2/type", []);
-  if (fetchedTypeList) {
-    typeList = fetchedTypeList.results;
-  }
-
   const handlePageChange = (selectedObject) => {
     setCurrentPage(selectedObject.selected);
-    console.log(currentPage)
+    console.log(currentPage);
   };
 
   return (
@@ -42,15 +36,23 @@ const App = () => {
       <div className={`app ${greyMode ? "grey" : "colorful"}`}>
         <Navbar />
         <div className={`container ${greyMode ? "grey" : "colorful"}`}>
-          <Route path="/" exact render={() => <div className="main-picture-container">
-            <img src="./SI13bW.png" alt="main_picture" />
-          </div>} />
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <div className="main-picture-container">
+                <img src="./SI13bW.png" alt="main_picture" />
+              </div>
+            )}
+          />
           <Route
             path="/pokemons"
             exact
             render={() => (
-              <div style={{minHeight : "90vh"}}>
-                <div className={`card-container ${greyMode ? "grey" : "colorful"}`}>
+              <div style={{ minHeight: "90vh" }}>
+                <div
+                  className={`card-container ${greyMode ? "grey" : "colorful"}`}
+                >
                   <PokemonList
                     pokemons={pokemonList}
                     setPokemonId={setPokemonId}
@@ -78,8 +80,8 @@ const App = () => {
             path="/types"
             exact
             render={() => (
-              <div className="type-container" style={{minHeight : "90vh"}}>
-                <TypeList typeList={typeList} />
+              <div className="type-container" style={{ minHeight: "90vh" }}>
+                <TypeList />
               </div>
             )}
           />
@@ -87,7 +89,7 @@ const App = () => {
             path={`/pokemon/${pokemonId}`}
             exact
             render={() => (
-              <div style={{minHeight : "90vh"}}>
+              <div style={{ minHeight: "90vh" }}>
                 <PokemonDetail pokemonId={pokemonId} />
               </div>
             )}
