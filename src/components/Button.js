@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Button = () => {
   const theme = useContext(ThemeContext);
@@ -15,7 +15,7 @@ const Button = () => {
 
   return (
     <div>
-      <button className="btn" onClick={onClick}>
+      <button onClick={onClick}>
         {greyMode ? "Switch to Colorful Mode" : "Switch to Greyscale Mode"}
       </button>
     </div>

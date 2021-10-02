@@ -1,9 +1,11 @@
-const Type = ({type}) => {
-    return (
-        <div className="type-card">
-            <h3 className="pokemon-name">{type.name}</h3>
-      </div>
-    )
-}
+import { PokemonTypeCard } from "../style/PokemonTypeElements";
 
-export default Type
+const Type = ({ type }) => {
+  return (
+    <PokemonTypeCard className="type-card">
+      <h3>{type.name}</h3>
+    </PokemonTypeCard>
+  );
+};
+
+export default Type;
