@@ -4,7 +4,7 @@ import { useAxiosGet } from "../hooks/axiosGet";
 const TypeList = () => {
   let typeList = null;
 
-  const [, fetchedTypeList] = useAxiosGet("https://pokeapi.co/api/v2/type", []);
+  const fetchedTypeList = useAxiosGet("https://pokeapi.co/api/v2/type", [])[1];
   if (fetchedTypeList) {
     typeList = fetchedTypeList.results;
   }

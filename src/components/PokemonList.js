@@ -8,7 +8,7 @@ const PokemonList = (props) => {
 
   const pokemonListUrl = `https://pokeapi.co/api/v2/pokemon?offset=${pokemonsFrom}&limit=${pokemonsPerPage}`;
   let pokemonList = null;
-  const [, fetchedPokemons] = useAxiosGet(pokemonListUrl, [props.currentPage]);
+  const fetchedPokemons = useAxiosGet(pokemonListUrl, [props.currentPage])[1];
   if (fetchedPokemons) {
     pokemonList = fetchedPokemons.results;
   }

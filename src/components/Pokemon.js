@@ -5,7 +5,7 @@ const Pokemon = ({ pokemon, setPokemonId }) => {
   let picture = null;
   const pokemonId = pokemon.url.split("/")[6];
 
-  const [, fetchData] = useAxiosGet(pokemon.url, []);
+  const fetchData = useAxiosGet(pokemon.url, [])[1];
   if (fetchData) {
     picture = fetchData.sprites.front_default;
   }

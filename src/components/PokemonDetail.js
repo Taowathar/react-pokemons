@@ -9,10 +9,10 @@ const PokemonDetail = ({ pokemonId }) => {
   let abilities = [];
   let types = [];
 
-  const [, fetchData] = useAxiosGet(
+  const fetchData = useAxiosGet(
     `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`,
     []
-  );
+  )[1];
 
   if (fetchData) {
     pokemon = fetchData;
