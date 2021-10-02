@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
 import PokemonDetail from "./components/PokemonDetail";
-import { ThemeContext } from "./components/ThemeContext";
+import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
   const theme = useContext(ThemeContext);
