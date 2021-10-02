@@ -1,5 +1,6 @@
 import Type from "./Type";
 import { useAxiosGet } from "../hooks/axiosGet";
+import { PokemonTypeContainer } from "../style/PokemonTypeElements";
 
 const TypeList = () => {
   let typeList = null;
@@ -10,11 +11,11 @@ const TypeList = () => {
   }
 
   return (
-    <>
+    <PokemonTypeContainer>
       {typeList
         ? typeList.map((type) => <Type key={type.url} type={type} />)
         : null}
-    </>
+    </PokemonTypeContainer>
   );
 };
 
