@@ -1,4 +1,17 @@
 import { useAxiosGet } from "../hooks/axiosGet";
+import {
+  PokemonDetailH4,
+  PokemonDetailContainer,
+  PokemonDetailH1,
+  PokemonDetailPage,
+  PokemonDetailPictureContainer,
+  PokemonDetails,
+  PokemonAbilities,
+  PokemonDetailAbilityCard,
+  PokemonDetailH2,
+  PokemonTypes,
+  PokemonType,
+} from "../style/PokemonDetailElements";
 
 const PokemonDetail = ({ pokemonId }) => {
   let pokemon,
@@ -9,10 +22,10 @@ const PokemonDetail = ({ pokemonId }) => {
   let abilities = [];
   let types = [];
 
-  const [, fetchData] = useAxiosGet(
+  const fetchData = useAxiosGet(
     `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`,
     []
-  );
+  )[1];
 
   if (fetchData) {
     pokemon = fetchData;
@@ -24,35 +37,35 @@ const PokemonDetail = ({ pokemonId }) => {
     types = pokemon.types;
   }
   return (
-    <div className="detail-page">
-      <div className="detail-container">
-        <div className="picture-container">
+    <PokemonDetailPage>
+      <PokemonDetailContainer>
+        <PokemonDetailPictureContainer>
           <img src={picture} alt="official-artwork" />
-        </div>
-        <div className="details">
-          <h1>{name}</h1>
-          <h4>Height: {height}</h4>
-          <h4>Weight: {weight}</h4>
+        </PokemonDetailPictureContainer>
+        <PokemonDetails>
+          <PokemonDetailH1>{name}</PokemonDetailH1>
+          <PokemonDetailH4>Height: {height}</PokemonDetailH4>
+          <PokemonDetailH4>Weight: {weight}</PokemonDetailH4>
 
-          <h2>Types:</h2>
-          <div className="types">
+          <PokemonDetailH2>Types:</PokemonDetailH2>
+          <PokemonTypes>
             {types.map((type) => (
-              <div className="type" key={types.indexOf(type)}>
+              <PokemonType key={types.indexOf(type)}>
                 <p>{type.type.name}</p>
-              </div>
+              </PokemonType>
             ))}
-          </div>
-        </div>
-      </div>
+          </PokemonTypes>
+        </PokemonDetails>
+      </PokemonDetailContainer>
       <h1>Abilities</h1>
-      <div className="abilities">
+      <PokemonAbilities>
         {abilities.map((ability) => (
-          <div className="ability-card" key={abilities.indexOf(ability)}>
+          <PokemonDetailAbilityCard key={abilities.indexOf(ability)}>
             <p>{ability.ability.name}</p>
-          </div>
+          </PokemonDetailAbilityCard>
         ))}
-      </div>
-    </div>
+      </PokemonAbilities>
+    </PokemonDetailPage>
   );
 };
 
