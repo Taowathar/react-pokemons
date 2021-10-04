@@ -24,4 +24,7 @@ export const NavbarLink = styled.div`
     color: khaki;
     font-family: "Patua One", cursive;
   }
+  a:hover {
+    background-color: brown;
+  }
 `;
