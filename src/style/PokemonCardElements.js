@@ -1,4 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const Scale = keyframes`
+0% {
+  transform: rotateY(0);
+}
+50% {
+  transform: rotateY(-180deg);
+}
+50% {
+  transform: rotateY(-180deg);
+}
+}
+`;
+
 
 export const PokemonCardContainer = styled.div`
   text-transform: capitalize;
