@@ -13,7 +13,6 @@ const Scale = keyframes`
 }
 `;
 
-
 export const PokemonCardContainer = styled.div`
   text-transform: capitalize;
   display: flex;
@@ -33,10 +32,16 @@ export const PokemonCard = styled.div`
   width: 160px;
   height: 160px;
   background-color: green;
-  border: 5px solid black;
-  border-radius: 15px;
   margin: 5px;
   text-align: center;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border: 10px;
+  position: relative;
+  :hover {
+    animation: ${Scale} 0.6s ease-in-out both;
+  }
 `;
 
 export const H3 = styled.div`
