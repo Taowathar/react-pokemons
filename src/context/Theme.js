@@ -1,4 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
+
+
+const Scale = keyframes`
+0% {transform: rotate(0);}
+100% {transform: rotate(360deg);}
+`;
+
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -59,6 +66,10 @@ export const GlobalStyles = createGlobalStyle`
         padding: 10px;
         text-align: center;
         font-family: "Sigmar One", cursive;
+
+        :hover {
+            animation: ${Scale} 0.6s ease-in-out both;
+          }npm
     }
 
     a {
